@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ExpedienteCargo" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="901115e3-fa17-465f-b7ec-c38703f51510">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="anio" class="java.lang.String">
+		<fieldDescription><![CDATA[anio]]></fieldDescription>
+	</field>
+	<field name="asunto" class="java.lang.String">
+		<fieldDescription><![CDATA[asunto]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="dependenciaDestino" class="java.lang.String">
+		<fieldDescription><![CDATA[dependenciaDestino]]></fieldDescription>
+	</field>
+	<field name="fechaIngreso" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaIngreso]]></fieldDescription>
+	</field>
+	<field name="dniSolicitante" class="java.lang.String">
+		<fieldDescription><![CDATA[dniSolicitante]]></fieldDescription>
+	</field>
+	<field name="nombreRepresentanteLegal" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreRepresentanteLegal]]></fieldDescription>
+	</field>
+	<field name="nombreSolicitante" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreSolicitante]]></fieldDescription>
+	</field>
+	<field name="numeroExpediente" class="java.lang.String">
+		<fieldDescription><![CDATA[numeroExpediente]]></fieldDescription>
+	</field>
+	<field name="numeroFolios" class="java.lang.String">
+		<fieldDescription><![CDATA[numeroFolios]]></fieldDescription>
+	</field>
+	<field name="observaciones" class="java.lang.String">
+		<fieldDescription><![CDATA[observaciones]]></fieldDescription>
+	</field>
+	<field name="rucSolicitante" class="java.lang.String">
+		<fieldDescription><![CDATA[rucSolicitante]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="46f9b98c-625e-4247-93a0-cc267cd930ec" x="0" y="0" width="555" height="34"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CARGO DE RECEPCIÓN DE EXPEDIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="91cfa357-02db-4a03-ba55-2fa1f966ac15" x="106" y="24" width="344" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[(ESTE CARGO NO ES SEÑAL DE CONFORMIDAD DEL TRÁMITE)]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="1b292a27-a304-4b99-9bc7-221b1e527253" x="0" y="44" width="555" height="1"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="219" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="02f831e5-e6d1-4599-bcb0-3b53fb46b9a5" mode="Opaque" x="15" y="16" width="100" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Nro. de expediente :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e13acf4b-2999-4442-903d-dcf289f97cfa" mode="Opaque" x="288" y="16" width="95" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Fecha de ingreso :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73a5813e-cd76-44c4-a2ab-6516cb362962" mode="Opaque" x="15" y="46" width="61" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Solicitante :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73b7fce9-62a7-409f-825c-c2f65f714544" mode="Opaque" x="127" y="66" width="24" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[DNI :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b801c497-b7e0-48d0-8890-780d456a8fdc" mode="Opaque" x="288" y="66" width="31" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[RUC :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="17821697-b604-4cef-9ef3-0deea079f34a" mode="Opaque" x="15" y="99" width="103" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Representante legal :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d0d1ee3c-d896-49b5-aa41-41fca263233d" mode="Opaque" x="15" y="130" width="39" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Asunto :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="59a427d2-2450-4cd3-b0db-df14a1fab36e" mode="Opaque" x="15" y="168" width="108" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Dependencia destino :]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="ca2ba08e-607f-4b12-9076-6cc0ac59998c" x="0" y="218" width="555" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="92b2d12f-d791-4950-9116-1c81904a7bc1" x="473" y="195" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[SOLICITANTE]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="2f7ec111-829a-4796-84da-62331a69cb79" x="115" y="16" width="49" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroExpediente}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="ca08f485-7bfc-4ffe-884c-699067cbe9e4" x="166" y="16" width="49" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anio}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="8bb0eb67-08d3-4214-9730-c81d05e82c14" x="382" y="16" width="147" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaIngreso}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="553e26fa-3d01-46a8-86bb-54f201252252" x="76" y="46" width="479" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreSolicitante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="61fa2e2f-15b3-4e61-b652-b2b6934108f5" x="152" y="66" width="136" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dniSolicitante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="eb82d8c4-7f4d-4677-a763-3269bfe62ca1" x="319" y="66" width="236" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rucSolicitante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="7378f512-41db-4255-b9cb-27d0a247efef" x="118" y="99" width="437" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreRepresentanteLegal}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="53ea04e0-831d-497d-b641-182be172f67d" x="56" y="130" width="499" height="38"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asunto}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="8b2906ec-4a6d-4550-8099-be7a6ac411a0" x="123" y="168" width="432" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dependenciaDestino}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="445">
+			<staticText>
+				<reportElement uuid="958425e6-a741-4af0-a2d8-755821ccaa15" x="0" y="90" width="555" height="34"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CARGO DE RECEPCIÓN DE EXPEDIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="acdedf63-639a-418f-b912-e08c6fad486d" x="473" y="106" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[INSTITUCIÓN]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="5d9202cd-d822-4cd1-9252-54acfb690537" x="0" y="126" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="54ba8e12-2768-4da8-b68d-fede321f9230" x="288" y="186" width="31" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[RUC :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb041ca1-ae4a-43bc-bcd6-4f176815d1ce" x="15" y="136" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Nro. de expediente :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="de6cb7f3-cb03-4c57-a5b8-3e8f7fb3282b" x="15" y="166" width="61" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Solicitante :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b4671dbd-124a-4226-a8a0-dd2abe6eccb0" x="127" y="186" width="24" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[DNI :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="964bb053-467d-4dc1-8767-c65e1626cecd" x="15" y="292" width="108" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Dependencia destino :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1ccd96f6-adc3-47da-9457-6f052c94428c" x="15" y="247" width="39" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Asunto :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="740a8532-40ef-4b6e-a6fb-a8955b79770c" x="15" y="219" width="103" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Representante legal :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="37c80524-851f-4357-9c7a-47e8bd7d558c" x="288" y="136" width="95" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Fecha de ingreso :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5f754457-fde4-4da2-a7bb-66ce9676cba0" x="15" y="326" width="79" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Observaciones :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="c70c5e56-3421-4fda-9dfc-35a851747b8e" x="166" y="136" width="49" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anio}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="4b62477a-6c87-49f7-964d-ae2daffcc1c1" x="115" y="136" width="49" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroExpediente}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="ae3cca5d-af0d-422f-acbd-5efc4d57c04a" x="382" y="136" width="101" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaIngreso}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a866947a-8b01-4883-8444-de69773ff7b2" x="76" y="166" width="479" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreSolicitante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="4be6c6e7-5055-409f-a29f-bd9e2f475a0a" x="152" y="186" width="136" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dniSolicitante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="29f39e34-e274-485e-84c5-50a2ed2af79f" x="319" y="186" width="236" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rucSolicitante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="9a2a6798-168d-4b3a-a4d2-0fa65389ea11" x="118" y="219" width="437" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreRepresentanteLegal}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="70957f92-a086-47b6-9cae-62308d19dd77" x="56" y="247" width="499" height="38"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asunto}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a889aeca-9648-4146-acaf-b25a6327f2ba" x="123" y="292" width="432" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dependenciaDestino}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="429be844-9474-43dc-bc04-f96026597144" x="94" y="326" width="461" height="72"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{observaciones}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="bf4ceaa0-0cb6-4660-8e90-76392899bd47" x="483" y="136" width="34" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Folios :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="576b4d37-ebc8-406a-82d3-af4ff19bd622" mode="Transparent" x="517" y="136" width="38" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroFolios}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,41 @@
+<html>
+<body>
+<div style="color:black;">
+
+#if ($vencidos)
+<h3><b>EXPEDIENTES EN ARCHIVO PROVICIONAL VENCIDOS</b></h3>
+#else
+<h3><b>EXPEDIENTES CON PLAZO DE ATENCIÓN VENCIDO</b></h3>
+#end
+<hr>
+<table border="0" cellspacing="2">
+     <tr  align="center">
+          <td><b>Codigo</b></td> 
+          <td><b>Registrado Por</b></td>
+          <td><b>Asunto</b></td>
+          <td><b>Fecha de Registro</b></td>
+           #if (!$vencidos)
+   <td><b>Dependencia Actual</b></td>
+#end
+         
+          
+     </tr> 
+#foreach( $documento in $expedientesVencidos)
+    <tr  align="center">
+     <td>$documento.getCodigo()</td>  
+    <td>$documento.creadoPor</td> 
+    <td>$documento.getAsunto()</td> 
+    <td>$documento.getTextoFinaliza()</td>
+    #if (!$vencidos)
+    <td>$documento.getObservaciones()</td>
+#end
+ </tr> 
+#end
+</table>
+</div>
+<br><br>
+<div align="center">
+	<p><b>Este Documento ha sido enviado desde el Sistema Integrado de Gestión de Expedientes</b><p>
+</div>
+</body>
+</html>

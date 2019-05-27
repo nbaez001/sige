@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCargos" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7818eb3f-2f9b-45f9-ba9f-eb0689aa4054">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="268"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="todos" class="java.lang.String">
+		<defaultValueExpression><![CDATA["*"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nroexanio" class="java.lang.String">
+		<defaultValueExpression><![CDATA["2015"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nroexdesde" class="java.lang.String">
+		<defaultValueExpression><![CDATA["00001"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nroexhasta" class="java.lang.String">
+		<defaultValueExpression><![CDATA["00020"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="coddependencia" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[new Long("-1")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="horadesde" class="java.lang.String">
+		<defaultValueExpression><![CDATA["12:12:12"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="horahasta" class="java.lang.String">
+		<defaultValueExpression><![CDATA["24:23:23"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecharecepccion" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new java.util.Date()]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select dep.id as dependenciacodigo,dep.nombre as dependencianombre,expe.numeroexpediente,expe.fechaexpediente,
+	per.nombrecompleto as persona,expe.asunto,expe.numerofolios
+from expediente expe
+	inner join expedientemov expmov on expe.codexpediente=expmov.codexpediente and expmov.correlativo=1
+	inner join dependencias dep on expmov.coddependencia=dep.id
+	inner join persona per on expe.codsolicitante=per.codpersona
+where expe.archivoProv=0 and (( dep.id=$P{coddependencia} and dep.id>0) or ($P{coddependencia}=-1))
+and ( (expe.anioexpediente=$P{nroexanio} and $P{nroexdesde}<=expe.numeroexpediente and $P{nroexhasta}>=expe.numeroexpediente )
+	   OR  ( $P{horadesde}<=LEFT(CONVERT(TIME, fechaexpediente, 108),8) AND LEFT(CONVERT(TIME, fechaexpediente, 108),8)<=$P{horahasta} )
+	   or $P{todos}='*'  ) and CONVERT(date, $P{fecharecepccion})=CONVERT(date, fechaexpediente)]]>
+	</queryString>
+	<field name="dependenciacodigo" class="java.lang.Long"/>
+	<field name="dependencianombre" class="java.lang.String"/>
+	<field name="numeroexpediente" class="java.lang.String"/>
+	<field name="fechaexpediente" class="java.sql.Timestamp"/>
+	<field name="persona" class="java.lang.String"/>
+	<field name="asunto" class="java.lang.String"/>
+	<field name="numerofolios" class="java.lang.Short"/>
+	<group name="dependencia">
+		<groupExpression><![CDATA[$F{dependenciacodigo}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="fc25c6ea-7704-44aa-83d3-58dbe025240c" x="122" y="11" width="432" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{dependencianombre}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="35c433e3-691f-4904-a752-99c876fffce6" x="0" y="30" width="62" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nº EXPED.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="1cec2d6b-70d2-4fee-9d35-9aeb949c9c17" x="62" y="30" width="100" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[FECHA/HORA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="672d77c8-394e-4431-9e3b-cbf75bca67be" x="162" y="30" width="161" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[PERSONA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="95120bb3-2b8b-40c9-b0ad-86858f89f24e" x="323" y="30" width="210" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[ASUNTO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="40b9bf53-576c-4c3f-8885-0793479eaea7" x="533" y="30" width="57" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[FOLIOS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="f1bc22f0-dd64-4924-b8e3-6f72a2782241" x="0" y="11" width="77" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Dependencia]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="f2fd8ffd-89a3-4bca-b5aa-4ab156358dc8" x="83" y="11" width="40" height="20"/>
+					<box rightPadding="3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{dependenciacodigo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="40b9bf53-576c-4c3f-8885-0793479eaea7" x="590" y="30" width="83" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[COD. RECIBIDO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="40b9bf53-576c-4c3f-8885-0793479eaea7" x="673" y="30" width="129" height="20"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[RECEPCIÓN]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="dc4f146c-baeb-4f43-a218-6cb9103d1a30" x="162" y="20" width="262" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REGISTRO DE INGRESOS DE EXPEDIENTES]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="c6811f60-64e2-44cd-b62f-7f6a44dc7868" x="434" y="49" width="80" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Página:"+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="55d0b2c2-ab56-4bf2-85e9-4495069478bd" x="514" y="49" width="40" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="8971a1f1-7494-43d3-a8f9-ec988b789760" x="471" y="29" width="83" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{fecharecepccion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d860704c-615b-4fe9-8cba-30f0a782fa89" x="434" y="29" width="37" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="6807eb29-3de9-4b09-8cae-254455739659" stretchType="RelativeToBandHeight" x="0" y="0" width="62" height="44" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{numeroexpediente}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy HH:mm:ss">
+				<reportElement uuid="71d357c0-17ab-4eb1-bd2d-205c14f4e7fc" stretchType="RelativeToBandHeight" x="62" y="0" width="100" height="44"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fechaexpediente}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="6cfaa5f4-1fb4-4803-abbc-b40b17dc70c0" stretchType="RelativeToBandHeight" x="167" y="0" width="156" height="44" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{persona}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="62817c4b-9aaf-452c-818e-e09287aff42f" stretchType="RelativeToBandHeight" x="323" y="0" width="210" height="44" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{asunto}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="8413759a-5f85-4cc0-994f-0fef2b85961f" stretchType="RelativeToBandHeight" x="533" y="0" width="57" height="44" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{numerofolios}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="8413759a-5f85-4cc0-994f-0fef2b85961f" stretchType="RelativeToBandHeight" x="673" y="0" width="129" height="44" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="8413759a-5f85-4cc0-994f-0fef2b85961f" stretchType="RelativeToBandHeight" x="590" y="0" width="83" height="44" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
